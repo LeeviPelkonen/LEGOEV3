@@ -22,7 +22,7 @@ public class Main {
 		Drive mBmCIrSensor = new Drive(m3, m2, irSensor);
 		Drive mA = new Drive(m1);
 		
-		ColourNew colourSensor = new ColourNew(new EV3ColorSensor(SensorPort.S3)); 
+		Colour colourSensor = new Colour(new EV3ColorSensor(SensorPort.S3)); 
 
 		
 		while(true) {
@@ -32,7 +32,8 @@ public class Main {
 				LCD.drawString("value " + irSensor.getRemoteCommand(0), 0, 1);
 			}
 			//OHJAUS
-			mBmCIrSensor.driveWithController(sensorValue);
+			//mBmCIrSensor.driveWithController(sensorValue);
+			mBmCIrSensor.driveWithController(irSensor.getRemoteCommand(0));
 			//VÄRIN MÄÄRITYS
 			if(irSensor.getRemoteCommand(1) != 9 && irSensor.getRemoteCommand(1) != 0){
 				colourSensor.setColour(irSensor.getRemoteCommand(0));
