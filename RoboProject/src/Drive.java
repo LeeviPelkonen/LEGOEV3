@@ -10,7 +10,7 @@ public class Drive {
 	private EV3IRSensor irSensor;
 	
 	//KONSTRUKTORI OHJAUKSELLE
-	public Drive(RegulatedMotor mB, RegulatedMotor mC, EV3IRSensor irSensor) { 
+	public Drive(RegulatedMotor mB, RegulatedMotor mC, EV3IRSensor irSensor) { //SUURI, TAKA, IRSENROR
 		this.mB = mB;
 		this.mB.setSpeed(500);
 		this.mC = mC;
@@ -26,6 +26,12 @@ public class Drive {
 	//KOURA METODI
 	public void handClose() {
 		mA.rotate(100);
+	}
+	public void rotateClaw (int angle) {
+		mA.rotate(angle);
+	}
+	public void stop () {
+		mB.stop(true);
 	}
 	//OHJAUS METODI
 	public void driveWithController(int sensorValue) {

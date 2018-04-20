@@ -39,37 +39,7 @@ public class Main {
 				colourSensor.setColour(irSensor.getRemoteCommand(0));
 			}
 			//VÄRIN TUNNISTUS
-			switch(cs.getColorID()) {
-    		case Color.BLUE:
-    			if (colour == 2) {
-    				colour = 0;
-    				m1.rotate(100);
-    				m3.stop(true);
-    				LCD.clear(4);
-    				LCD.drawString("BLUE", 0, 4);
-    			}
-    			break;
-    		case Color.GREEN:
-    			if (colour == 1) {
-    				colour = 0;
-    				m1.rotate(100);
-    				m3.stop(true);
-    				LCD.clear(4);
-    				LCD.drawString("GREEN", 0, 4);
-    			}
-    			break;
-    		case Color.RED:
-    			if (colour == 3) {
-    				colour = 0;
-    				m1.rotate(100);
-    				m3.stop(true);
-    				LCD.clear(4);
-    				LCD.drawString("Red", 0, 4);
-    			}
-    			break;
-    		default:
-    			LCD.clear(4);
-			}
+			colourSensor.findColour();
 			//EXIT
 			if(Button.readButtons()==2) {
 				m1.rotate(100);
