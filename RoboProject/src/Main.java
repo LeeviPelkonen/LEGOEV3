@@ -19,7 +19,8 @@ public class Main {
 		//RegulatedMotor m3 = new EV3LargeRegulatedMotor(MotorPort.B); //AJO (LARGE MOTOR)
 		
 		//OHJAUS JA KOURA LUONTI
-		Drive mBmCIrSensor = new Drive(new EV3LargeRegulatedMotor(MotorPort.B), new EV3MediumRegulatedMotor(MotorPort.C), new EV3IRSensor(SensorPort.S2));
+		LCD.drawString("Ohjelma päällä", 0, 1);
+		Drive mBmCIrSensor = new Drive(new EV3LargeRegulatedMotor(MotorPort.B), new EV3MediumRegulatedMotor(MotorPort.C));
 		Drive mA = new Drive(new EV3MediumRegulatedMotor(MotorPort.A));
 		//Värisensorin käyttö
 		Colour colourSensor = new Colour(new EV3ColorSensor(SensorPort.S3)); 

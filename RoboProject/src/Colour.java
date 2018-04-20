@@ -13,7 +13,7 @@ public class Colour {
 	private EV3ColorSensor cs; 
 	private int colour;
 	private Drive clawMotor = new Drive(new EV3MediumRegulatedMotor(MotorPort.A));
-	private Drive driveMotor = new Drive(new EV3MediumRegulatedMotor(MotorPort.C), new EV3LargeRegulatedMotor(MotorPort.B),new EV3IRSensor(SensorPort.S2));
+	private Drive driveMotor = new Drive(new EV3LargeRegulatedMotor(MotorPort.B), new EV3MediumRegulatedMotor(MotorPort.C));
 	public Colour (EV3ColorSensor cs) {
 		this.cs = cs;
 	}
