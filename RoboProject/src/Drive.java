@@ -21,8 +21,6 @@ public class Drive {
 		this.mA = mA;
 		this.mA.rotate(-100);
 	}
-	
-	
 	//KOURA METODI
 	public void handClose() {
 		mA.rotate(100);
@@ -32,6 +30,11 @@ public class Drive {
 	}
 	public void stop () {
 		mB.stop(true);
+	}
+	public void close () { //STOPPAA KAIKKI MOOTTORIT
+		mA.close();
+		mB.close();
+		mC.close();
 	}
 	//OHJAUS METODI
 	public void driveWithController(int sensorValue) {

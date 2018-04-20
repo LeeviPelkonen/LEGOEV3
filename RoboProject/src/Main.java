@@ -11,17 +11,17 @@ import lejos.utility.Delay;
 
 public class Main {
 	public static void main(String[] args) {
-		int i = 0, colour = 0, turn = 0, forward = 0;
+		int i = 0;
 		//EV3ColorSensor cs = new EV3ColorSensor(SensorPort.S3);
 		EV3IRSensor irSensor = new EV3IRSensor(SensorPort.S2);
-		RegulatedMotor m1 = new EV3MediumRegulatedMotor(MotorPort.A); //KOURA (MEDIUM MOTOR)
-		RegulatedMotor m2 = new EV3MediumRegulatedMotor(MotorPort.C); //OHJAUS (MEDIUM MOTOR)
-		RegulatedMotor m3 = new EV3LargeRegulatedMotor(MotorPort.B); //AJO (LARGE MOTOR)
+		//RegulatedMotor m1 = new EV3MediumRegulatedMotor(MotorPort.A); //KOURA (MEDIUM MOTOR)
+		//RegulatedMotor m2 = new EV3MediumRegulatedMotor(MotorPort.C); //OHJAUS (MEDIUM MOTOR)
+		//RegulatedMotor m3 = new EV3LargeRegulatedMotor(MotorPort.B); //AJO (LARGE MOTOR)
 		
 		//OHJAUS JA KOURA LUONTI
-		Drive mBmCIrSensor = new Drive(m3, m2, irSensor);
-		Drive mA = new Drive(m1);
-		
+		Drive mBmCIrSensor = new Drive(new EV3LargeRegulatedMotor(MotorPort.B), new EV3MediumRegulatedMotor(MotorPort.C), new EV3IRSensor(SensorPort.S2));
+		Drive mA = new Drive(new EV3MediumRegulatedMotor(MotorPort.A));
+		//Värisensorin käyttö
 		Colour colourSensor = new Colour(new EV3ColorSensor(SensorPort.S3)); 
 
 		
@@ -42,12 +42,10 @@ public class Main {
 			colourSensor.findColour();
 			//EXIT
 			if(Button.readButtons()==2) {
-				m1.rotate(100);
+				mA.rotateClaw(100);
 				irSensor.close();
 				colourSensor.closeColour();
-				m1.close();
-				m2.close();
-				m3.close();
+				mA.close();
 				break;
 			}
 		}
