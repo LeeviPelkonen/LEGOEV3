@@ -6,7 +6,7 @@ import lejos.utility.Delay;
 
 public class IrsChecker extends Thread {
 	private EV3IRSensor infraredSensor;
-
+	private int i;
 	public IrsChecker(EV3IRSensor sensor) {
 		this.infraredSensor = sensor;
 	}
@@ -22,9 +22,12 @@ public class IrsChecker extends Thread {
 		}
 	}
 	// METHOD TO GET REMOTECONTROLLER BUTTON VALUE WHEN PRESSED
-	public int getRemComValue() {
-		int remoteCommand = infraredSensor.getRemoteCommand(0);
+	public int getRemComValue(int channel) {
+		int remoteCommand = infraredSensor.getRemoteCommand(channel);
 		return remoteCommand;
+	}
+	public void close () {
+		infraredSensor.close();
 	}
 	// METHOD TO GET DISTANCE FROM OBJECTS NEAR SENSOR
 	public float getDistance() {
