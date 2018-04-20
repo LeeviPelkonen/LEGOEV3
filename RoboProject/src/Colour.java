@@ -12,13 +12,14 @@ import lejos.utility.Delay;
 public class Colour {
 	public static void main(String[] args) {
 		int i = 0, colour = 0, turn = 0, forward = 0;
-		EV3ColorSensor cs = new EV3ColorSensor(SensorPort.S3);
+		//EV3ColorSensor cs = new EV3ColorSensor(SensorPort.S3);
 		EV3IRSensor irSensor = new EV3IRSensor(SensorPort.S2);
-		RegulatedMotor m1 = new EV3MediumRegulatedMotor(MotorPort.A);
-		RegulatedMotor m2 = new EV3MediumRegulatedMotor(MotorPort.C);
-		RegulatedMotor m3 = new EV3LargeRegulatedMotor(MotorPort.B);
+		RegulatedMotor m1 = new EV3MediumRegulatedMotor(MotorPort.A); //KOURA
+		RegulatedMotor m2 = new EV3MediumRegulatedMotor(MotorPort.C); //TAKA PYÖRÄ
+		RegulatedMotor m3 = new EV3LargeRegulatedMotor(MotorPort.B); //ISO MOOTTORI
 		m3.setSpeed(500);
 		m1.rotate(-100);
+		ColourNew colourSensor = new ColourNew(new EV3ColorSensor(SensorPort.S3)); 
 
 		
 		while(true) {
@@ -65,20 +66,7 @@ public class Colour {
 			}
 			//VÄRIN MÄÄRITYS
 			if(irSensor.getRemoteCommand(1) != 9 && irSensor.getRemoteCommand(1) != 0){
-				colour = irSensor.getRemoteCommand(1);
-				LCD.drawInt(cs.getColorID(), 0, 5);
-				if(colour == 1) {
-					LCD.drawString("Green", 0, 3);
-				}
-				if(colour == 2) {
-					LCD.drawString("Blue", 0, 3);
-				}
-				if(colour == 3) {
-					LCD.drawString("Red", 0, 3);
-				}
-				if(colour == 4) {
-					m1.rotate(-100);
-				}
+				colourSensor.setColour(irSensor.getRemoteCommand(0));
 			}
 			//VÄRIN TUNNISTUS
 			switch(cs.getColorID()) {
@@ -86,7 +74,7 @@ public class Colour {
     			if (colour == 2) {
     				colour = 0;
     				m1.rotate(100);
-    				m3.stop();
+    				m3.stop(true);
     				LCD.clear(4);
     				LCD.drawString("BLUE", 0, 4);
     			}
@@ -95,7 +83,7 @@ public class Colour {
     			if (colour == 1) {
     				colour = 0;
     				m1.rotate(100);
-    				m3.stop();
+    				m3.stop(true);
     				LCD.clear(4);
     				LCD.drawString("GREEN", 0, 4);
     			}
@@ -104,7 +92,7 @@ public class Colour {
     			if (colour == 3) {
     				colour = 0;
     				m1.rotate(100);
-    				m3.stop();
+    				m3.stop(true);
     				LCD.clear(4);
     				LCD.drawString("Red", 0, 4);
     			}
@@ -116,7 +104,7 @@ public class Colour {
 			if(Button.readButtons()==2) {
 				m1.rotate(100);
 				irSensor.close();
-				cs.close();
+				colourSensor.closeColour();
 				m1.close();
 				m2.close();
 				m3.close();
