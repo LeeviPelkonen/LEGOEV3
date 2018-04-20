@@ -1,4 +1,5 @@
 
+import lejos.hardware.Sound;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
@@ -16,12 +17,15 @@ public class ColourNew {
 			LCD.drawInt(cs.getColorID(), 0, 5);
 			if(colour == 1) {
 				LCD.drawString("Green", 0, 3);
+				Sound.playTone(500, 500);
 			}
 			if(colour == 2) {
 				LCD.drawString("Blue", 0, 3);
+				Sound.playTone(500, 500);
 			}
 			if(colour == 3) {
 				LCD.drawString("Red", 0, 3);
+				Sound.playTone(500, 500);
 			}		
 	}
 	public int getColour () {
@@ -37,6 +41,10 @@ public class ColourNew {
 				//m3.stop(true);
 				LCD.clear(4);
 				LCD.drawString("BLUE", 0, 4);
+				Sound.playTone(500, 100);
+				Sound.playTone(400, 100);
+				Sound.playTone(600, 100);
+				
 			}
 			break;
 		case Color.GREEN:
@@ -46,6 +54,9 @@ public class ColourNew {
 				//m3.stop(true);
 				LCD.clear(4);
 				LCD.drawString("GREEN", 0, 4);
+				Sound.playTone(500, 100);
+				Sound.playTone(400, 100);
+				Sound.playTone(600, 100);
 			}
 			break;
 		case Color.RED:
@@ -55,6 +66,9 @@ public class ColourNew {
 				//m3.stop(true);
 				LCD.clear(4);
 				LCD.drawString("Red", 0, 4);
+				Sound.playTone(500, 100);
+				Sound.playTone(400, 100);
+				Sound.playTone(600, 100);
 			}
 			break;
 		default:
@@ -63,6 +77,11 @@ public class ColourNew {
 	}
 	public void closeColour () {
 		cs.close();
+		Sound.playTone(500, 100);
+		Sound.playTone(400, 100);
+		Sound.playTone(300, 100);
+		Sound.playTone(200, 100);
+		Sound.playTone(100, 100);
 	}
 	
 }
