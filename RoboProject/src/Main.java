@@ -14,9 +14,9 @@ public class Main {
 		int i = 0, colour = 0, turn = 0, forward = 0;
 		//EV3ColorSensor cs = new EV3ColorSensor(SensorPort.S3);
 		EV3IRSensor irSensor = new EV3IRSensor(SensorPort.S2);
-		RegulatedMotor m1 = new EV3MediumRegulatedMotor(MotorPort.A); //KOURA
-		RegulatedMotor m2 = new EV3MediumRegulatedMotor(MotorPort.C); //TAKA PYÖRÄ
-		RegulatedMotor m3 = new EV3LargeRegulatedMotor(MotorPort.B); //ISO MOOTTORI
+		RegulatedMotor m1 = new EV3MediumRegulatedMotor(MotorPort.A); //KOURA (MEDIUM MOTOR)
+		RegulatedMotor m2 = new EV3MediumRegulatedMotor(MotorPort.C); //OHJAUS (MEDIUM MOTOR)
+		RegulatedMotor m3 = new EV3LargeRegulatedMotor(MotorPort.B); //AJO (LARGE MOTOR)
 		
 		//OHJAUS JA KOURA LUONTI
 		Drive mBmCIrSensor = new Drive(m3, m2, irSensor);
