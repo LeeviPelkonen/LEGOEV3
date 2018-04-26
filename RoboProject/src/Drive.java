@@ -43,10 +43,12 @@ public class Drive {
 	public void stop () {
 		mB.stop(true);
 	}
-	public void close () { //CLOSE KAIKKI MOOTTORIT
-		mA.close();
+	public void closeDrivingMotors () { //CLOSE AJAMIS MOOTTORIT
 		mB.close();
 		mC.close();
+	}
+	public void closeClawMotor () {
+		mA.close();
 	}
 	//OHJAUS METODI
 	public void driveWithController(int sensorValue) {

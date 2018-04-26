@@ -20,9 +20,9 @@ public class Main {
 		
 		//OHJAUS JA KOURA LUONTI
 		LCD.drawString("Ohjelma päällä", 0, 1);
-		Drive mBmCIrSensor = new Drive(m3, m2);
+		Drive mBmC = new Drive(m3, m2);
 		Drive mA = new Drive(m1);
-		//Värisensorin käyttö
+		//VÄRISENSORIN KÄYTTÖ
 		Colour colourSensor = new Colour(cs); 
 		IrsChecker irsChecker = new IrsChecker(irSensor);
 		
@@ -33,20 +33,20 @@ public class Main {
 				LCD.drawString("value " + irsChecker.getRemComValue(0), 0, 1);
 			}
 			//OHJAUS
-			//mBmCIrSensor.driveWithController(sensorValue);
-			mBmCIrSensor.driveWithController(irsChecker.getRemComValue(0));
+			mBmC.driveWithController(irsChecker.getRemComValue(0));
 			//VÄRIN MÄÄRITYS
 			if(irsChecker.getRemComValue(1) != 9 && irsChecker.getRemComValue(1) != 0){
 				colourSensor.setColour(irsChecker.getRemComValue(1),m1);
 			}
 			//VÄRIN TUNNISTUS
-			colourSensor.findColour(mA);
+			colourSensor.findColour(mBmC, mA);
 			//EXIT
 			if(Button.readButtons()==2) {
 				mA.rotateClaw(false);
 				irsChecker.close();
 				colourSensor.closeColour();
-				mA.close();
+				mBmC.closeDrivingMotors();
+				mA.closeClawMotor();
 				break;
 			}
 		}
