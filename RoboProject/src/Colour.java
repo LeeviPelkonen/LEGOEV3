@@ -42,13 +42,13 @@ public class Colour {
 		return colour;
 	}
 	//VÄRIN TUNNISTUS
-	public void findColour (RegulatedMotor mB, RegulatedMotor mA) { //SUURI, KOURA
+	public void findColour (Drive motors) { //SUURI, KOURA
 		switch(cs.getColorID()) {
 		case Color.BLUE:
 			if (colour == 2) {
 				colour = 0;
-				mA.rotate(-100); //sulje koura & pysäytä moottori
-				mB.stop();
+				motors.rotateClaw(false); //sulje koura & pysäytä moottori
+				motors.stop();
 				LCD.clear(4);
 				LCD.drawString("BLUE", 0, 4);
 				Sound.playTone(500, 100);
@@ -60,8 +60,8 @@ public class Colour {
 		case Color.GREEN:
 			if (colour == 1) {
 				colour = 0;
-				mA.rotate(-100); //sulje koura & pysäytä moottori
-				mB.stop();
+				motors.rotateClaw(false); //sulje koura & pysäytä moottori
+				motors.stop();
 				LCD.clear(4);
 				LCD.drawString("GREEN", 0, 4);
 				Sound.playTone(500, 100);
@@ -72,8 +72,8 @@ public class Colour {
 		case Color.RED:
 			if (colour == 3) {
 				colour = 0;
-				mA.rotate(-100); //sulje koura & pysäytä moottori
-				mB.stop();
+				motors.rotateClaw(false); //sulje koura & pysäytä moottori
+				motors.stop();;
 				LCD.clear(4);
 				LCD.drawString("Red", 0, 4);
 				Sound.playTone(500, 100);

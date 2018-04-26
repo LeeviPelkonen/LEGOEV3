@@ -40,10 +40,10 @@ public class Main {
 				colourSensor.setColour(irsChecker.getRemComValue(1),m1);
 			}
 			//VÄRIN TUNNISTUS
-			colourSensor.findColour(m3,m1);
+			colourSensor.findColour(mA);
 			//EXIT
 			if(Button.readButtons()==2) {
-				mA.rotateClaw(100);
+				mA.rotateClaw(false);
 				irsChecker.close();
 				colourSensor.closeColour();
 				mA.close();

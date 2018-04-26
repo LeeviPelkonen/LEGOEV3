@@ -9,6 +9,7 @@ public class Drive {
 	private EV3MediumRegulatedMotor mC; //KÄÄNTÄJÄ (MEDIUM MOOTTORI)
 	private int turn = 0;
 	private int forward = 0;
+	private boolean isClawOpen = false;
 	//private EV3IRSensor irSensor;
 	
 	//KONSTRUKTORI OHJAUKSELLE
@@ -21,14 +22,23 @@ public class Drive {
 	//KONSTRUKTORI KOURALLE
 	public Drive(EV3MediumRegulatedMotor mA) {
 		this.mA = mA;
-		this.mA.rotate(-100);
+		this.mA.rotate(-100); //AUKI
 	}
 	//KOURA METODI
 	/*public void handClose() {
 		mA.rotate(100);
 	}*/
-	public void rotateClaw (int angle) {
-		mA.rotate(angle);
+	public void rotateClaw (boolean isClawOpen) {
+		
+		if(isClawOpen == true && this.isClawOpen == false) {
+		mA.rotate(-100); //AUKI
+		this.isClawOpen = true;
+		} 
+		
+		if (isClawOpen == false && this.isClawOpen == true) {
+		mA.rotate(100); //KIINNI
+		this.isClawOpen = false;
+		}
 	}
 	public void stop () {
 		mB.stop(true);
