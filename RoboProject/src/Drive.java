@@ -1,6 +1,9 @@
+import lejos.hardware.Button;
+import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.motor.EV3MediumRegulatedMotor;
 import lejos.hardware.sensor.EV3IRSensor;
+import lejos.hardware.sensor.SensorMode;
 import lejos.robotics.RegulatedMotor;
 
 public class Drive {
@@ -83,9 +86,28 @@ public class Drive {
 				}
 			}
 			if(sensorValue == 9) {
-				turn *= 10;
-				mC.rotate(-turn);
+				mC.rotate((int) -mC.getPosition());
 				turn = 0;
+			}
+		}
+	}
+	public void returnHome(IrsChecker getDirection){
+		int i = 0;
+		mC.rotate((int) -mC.getPosition());
+		mB.backward();
+		while(true) {
+			LCD.drawString("DIREKTIO: "+getDirection.getDirection(), 0, 5);
+			if(i<getDirection.getDirection()) {
+				mC.rotate(-8);
+				i=i+5;
+			}
+			if(i>getDirection.getDirection()) {
+				mC.rotate(8);
+				i=i-5;
+			}
+			if(getDirection.getDistance()<10) {
+				mB.stop();
+				break;
 			}
 		}
 	}

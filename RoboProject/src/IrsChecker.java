@@ -1,6 +1,7 @@
 import lejos.hardware.Button;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.sensor.EV3IRSensor;
+import lejos.hardware.sensor.SensorMode;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
 
@@ -35,5 +36,11 @@ public class IrsChecker extends Thread {
 		float[] distSample = new float[distance.sampleSize()];
 		distance.fetchSample(distSample, 0);
 		return distSample[0];
+	}
+	public float getDirection() {
+		SampleProvider dir=infraredSensor.getSeekMode();
+		float[] dirSample = new float[dir.sampleSize()];
+		dir.fetchSample(dirSample, 0);
+		return dirSample[0];
 	}
 }
