@@ -40,6 +40,10 @@ public class Main {
 			}
 			//VÄRIN TUNNISTUS
 			colourSensor.findColour(mBmC, mA);
+			
+			if(Button.readButtons()==4) {
+				mBmC.returnHome(irSensor);
+			}
 			//EXIT
 			if(Button.readButtons()==2) {
 				mA.rotateClaw(false);
