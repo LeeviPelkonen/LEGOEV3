@@ -1,15 +1,8 @@
-
 import lejos.hardware.Button;
 import lejos.hardware.Sound;
 import lejos.hardware.lcd.LCD;
-import lejos.hardware.motor.EV3LargeRegulatedMotor;
-import lejos.hardware.motor.EV3MediumRegulatedMotor;
-import lejos.hardware.port.MotorPort;
-import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
-import lejos.hardware.sensor.EV3IRSensor;
 import lejos.robotics.Color;
-import lejos.robotics.RegulatedMotor;
 
 public class Colour {
 	private EV3ColorSensor cs; 

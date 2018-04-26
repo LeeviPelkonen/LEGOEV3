@@ -1,10 +1,6 @@
-import lejos.hardware.Button;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.motor.EV3MediumRegulatedMotor;
-import lejos.hardware.sensor.EV3IRSensor;
-import lejos.hardware.sensor.SensorMode;
-import lejos.robotics.RegulatedMotor;
 
 public class Drive {
 	private EV3MediumRegulatedMotor mA; //KOURA (MEDIUM MOOTTORI)
