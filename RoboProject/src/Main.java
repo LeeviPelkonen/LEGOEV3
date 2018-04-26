@@ -36,7 +36,7 @@ public class Main {
 			mBmC.driveWithController(irsChecker.getRemComValue(0));
 			//VÄRIN MÄÄRITYS
 			if(irsChecker.getRemComValue(1) != 9 && irsChecker.getRemComValue(1) != 0){
-				colourSensor.setColour(irsChecker.getRemComValue(1),m1);
+				colourSensor.setColour(irsChecker.getRemComValue(1),mA);
 			}
 			//VÄRIN TUNNISTUS
 			colourSensor.findColour(mBmC, mA);

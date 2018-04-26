@@ -20,7 +20,7 @@ public class Colour {
 	public Colour (EV3ColorSensor cs) {
 		this.cs = cs;
 	}
-	public void setColour (int colour, RegulatedMotor mA) {
+	public void setColour (int colour, Drive clawMotor) {
 		//VÄRIN MÄÄRITYS
 		this.colour = colour;
 			LCD.drawInt(cs.getColorID(), 0, 5);
@@ -40,7 +40,7 @@ public class Colour {
 				Button.LEDPattern(2);
 			}
 			if(colour == 4) {
-				mA.rotate(-100);
+				clawMotor.rotateClaw(true);
 			}
 	}
 	public int getColour () {

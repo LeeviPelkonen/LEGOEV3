@@ -23,6 +23,7 @@ public class Drive {
 	public Drive(EV3MediumRegulatedMotor mA) {
 		this.mA = mA;
 		this.mA.rotate(-100); //AUKI
+		this.isClawOpen = true;
 	}
 	//KOURA METODI
 	/*public void handClose() {
