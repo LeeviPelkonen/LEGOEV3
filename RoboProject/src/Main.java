@@ -4,9 +4,6 @@ import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.motor.EV3MediumRegulatedMotor;
 import lejos.hardware.port.*;
 import lejos.hardware.sensor.*;
-import lejos.robotics.Color;
-import lejos.robotics.RegulatedMotor;
-import lejos.utility.Delay;
 
 
 public class Main {
@@ -19,7 +16,7 @@ public class Main {
 		EV3LargeRegulatedMotor m3 = new EV3LargeRegulatedMotor(MotorPort.B); //AJO (LARGE MOTOR)
 		
 		//OHJAUS JA KOURA LUONTI
-		LCD.drawString("Ohjelma päällä", 0, 1);
+		LCD.drawString("Ohjelma paalla", 0, 1);
 		Drive mBmC = new Drive(m3, m2);
 		Drive mA = new Drive(m1);
 		//VÄRISENSORIN KÄYTTÖ
