@@ -14,11 +14,13 @@ import lejos.robotics.RegulatedMotor;
 public class Colour {
 	private EV3ColorSensor cs; 
 	private int colour;
+	private MusicPlayer music;
 	//LEDPATTERN 1 = GREEN 2 = RED 3 = YELLOW
 	//private Drive clawMotor = new Drive(new EV3MediumRegulatedMotor(MotorPort.A));
 	//private Drive driveMotor = new Drive(new EV3LargeRegulatedMotor(MotorPort.B), new EV3MediumRegulatedMotor(MotorPort.C));
 	public Colour (EV3ColorSensor cs) {
 		this.cs = cs;
+		this.music = new MusicPlayer();
 	}
 	public void setColour (int colour, Drive clawMotor) {
 		//VÄRIN MÄÄRITYS
@@ -57,9 +59,7 @@ public class Colour {
 				LCD.clear(4);
 				LCD.drawString("BLUE", 0, 4);
 				Button.LEDPattern(0);
-				Sound.playTone(500, 100);
-				Sound.playTone(400, 100);
-				Sound.playTone(600, 100);
+				music.start();
 				
 			}
 			break;
@@ -71,9 +71,7 @@ public class Colour {
 				LCD.clear(4);
 				LCD.drawString("GREEN", 0, 4);
 				Button.LEDPattern(0);
-				Sound.playTone(500, 100);
-				Sound.playTone(400, 100);
-				Sound.playTone(600, 100);
+				music.start();
 			}
 			break;
 		case Color.RED:
@@ -84,9 +82,7 @@ public class Colour {
 				LCD.clear(4);
 				LCD.drawString("Red", 0, 4);
 				Button.LEDPattern(0);
-				Sound.playTone(500, 100);
-				Sound.playTone(400, 100);
-				Sound.playTone(600, 100);
+				music.start();
 			}
 			break;
 		default:
