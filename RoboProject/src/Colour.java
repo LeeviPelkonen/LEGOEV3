@@ -1,4 +1,5 @@
 
+import lejos.hardware.Button;
 import lejos.hardware.Sound;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
@@ -13,6 +14,7 @@ import lejos.robotics.RegulatedMotor;
 public class Colour {
 	private EV3ColorSensor cs; 
 	private int colour;
+	//LEDPATTERN 1 = GREEN 2 = RED 3 = YELLOW
 	//private Drive clawMotor = new Drive(new EV3MediumRegulatedMotor(MotorPort.A));
 	//private Drive driveMotor = new Drive(new EV3LargeRegulatedMotor(MotorPort.B), new EV3MediumRegulatedMotor(MotorPort.C));
 	public Colour (EV3ColorSensor cs) {
@@ -25,14 +27,17 @@ public class Colour {
 			if(colour == 1) {
 				LCD.drawString("Green", 0, 3);
 				Sound.playTone(500, 500);
+				Button.LEDPattern(1);
 			}
 			if(colour == 2) {
 				LCD.drawString("Blue", 0, 3);
 				Sound.playTone(500, 500);
+				Button.LEDPattern(3);
 			}
 			if(colour == 3) {
 				LCD.drawString("Red", 0, 3);
 				Sound.playTone(500, 500);
+				Button.LEDPattern(2);
 			}
 			if(colour == 4) {
 				mA.rotate(-100);
@@ -51,6 +56,7 @@ public class Colour {
 				motors.stop();
 				LCD.clear(4);
 				LCD.drawString("BLUE", 0, 4);
+				Button.LEDPattern(0);
 				Sound.playTone(500, 100);
 				Sound.playTone(400, 100);
 				Sound.playTone(600, 100);
@@ -64,6 +70,7 @@ public class Colour {
 				motors.stop();
 				LCD.clear(4);
 				LCD.drawString("GREEN", 0, 4);
+				Button.LEDPattern(0);
 				Sound.playTone(500, 100);
 				Sound.playTone(400, 100);
 				Sound.playTone(600, 100);
@@ -76,6 +83,7 @@ public class Colour {
 				motors.stop();;
 				LCD.clear(4);
 				LCD.drawString("Red", 0, 4);
+				Button.LEDPattern(0);
 				Sound.playTone(500, 100);
 				Sound.playTone(400, 100);
 				Sound.playTone(600, 100);
