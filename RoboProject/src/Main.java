@@ -39,7 +39,7 @@ public class Main {
 			colourSensor.findColour(mBmC, mA);
 			
 			if(Button.readButtons()==4) {
-				mBmC.returnHome(irSensor);
+				mBmC.returnHome(irsChecker);
 			}
 			//EXIT
 			if(Button.readButtons()==2) {

@@ -92,10 +92,10 @@ public class Drive {
 			}
 		}
 	}
-	public void returnHome(SensorMode getDirection){
+	public void returnHome(IrsChecker getDirection){
 		//mB.backward();
 		while(true) {
-			LCD.drawString(""+getDirection, 0, 5);
+			LCD.drawString("DIREKTIO: "+getDirection.getDirection(), 0, 5);
 			if(Button.readButtons()==2) {
 				break;
 			}
