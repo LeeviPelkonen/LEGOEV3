@@ -8,12 +8,14 @@ public class Colour {
 	private EV3ColorSensor cs; 
 	private int colour;
 	private MusicPlayer music;
+	private Thread t;
 	//LEDPATTERN 1 = GREEN 2 = RED 3 = YELLOW
 	//private Drive clawMotor = new Drive(new EV3MediumRegulatedMotor(MotorPort.A));
 	//private Drive driveMotor = new Drive(new EV3LargeRegulatedMotor(MotorPort.B), new EV3MediumRegulatedMotor(MotorPort.C));
 	public Colour (EV3ColorSensor cs) {
 		this.cs = cs;
 		this.music = new MusicPlayer();
+		//this.t = new Thread(new MusicPlayer());
 	}
 	public void setColour (int colour, Drive clawMotor) {
 		//VÄRIN MÄÄRITYS
@@ -52,7 +54,8 @@ public class Colour {
 				LCD.clear(4);
 				LCD.drawString("BLUE", 0, 4);
 				Button.LEDPattern(0);
-				music.start();
+				t = new Thread(new MusicPlayer());
+				t.start();
 				
 			}
 			break;
@@ -64,7 +67,8 @@ public class Colour {
 				LCD.clear(4);
 				LCD.drawString("GREEN", 0, 4);
 				Button.LEDPattern(0);
-				music.start();
+				t = new Thread(new MusicPlayer());
+				t.start();
 			}
 			break;
 		case Color.RED:
@@ -75,7 +79,8 @@ public class Colour {
 				LCD.clear(4);
 				LCD.drawString("Red", 0, 4);
 				Button.LEDPattern(0);
-				music.start();
+				t = new Thread(new MusicPlayer());
+				t.start();
 			}
 			break;
 		default:

@@ -9,6 +9,7 @@ public class Drive {
 	private int turn = 0;
 	private int forward = 0;
 	private boolean isClawOpen = false;
+	//private MusicPlayer music;
 	//private EV3IRSensor irSensor;
 	
 	//KONSTRUKTORI OHJAUKSELLE
@@ -16,6 +17,7 @@ public class Drive {
 		this.mB = mB;
 		this.mB.setSpeed(500);
 		this.mC = mC;
+		
 		//this.irSensor = irSensor;
 	}
 	//KONSTRUKTORI KOURALLE
@@ -23,6 +25,7 @@ public class Drive {
 		this.mA = mA;
 		this.mA.rotate(-100); //AUKI
 		this.isClawOpen = true;
+		//this.music = new MusicPlayer();
 	}
 	//KOURA METODI
 	/*public void handClose() {
